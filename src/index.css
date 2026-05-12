@@ -1,1 +1,57 @@
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url(../src/assets/fonts/Montserrat-Regular.ttf)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat-Black";
+  src: url(../src/assets/fonts/Montserrat-Black.ttf)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url(../src/assets/fonts/Montserrat-Medium.ttf)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat-Light";
+  src: url(../src/assets/fonts/Montserrat-Light.ttf)
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
+
+@theme {
+  --color-primary-100: rgb(222, 240, 252);
+  --color-primary-200: rgb(186, 220, 247);
+  --color-primary-300: rgb(150, 200, 242);
+  --color-primary-400: rgb(114, 180, 237);
+  --color-primary-500: rgb(78, 160, 232);
+  --color-primary-600: rgb(62, 136, 197);
+  --color-primary-700: rgb(47, 112, 162);
+  --color-primary-800: rgb(31, 88, 127);
+  --color-primary-900: rgb(16, 64, 92);
+
+  --color-secondary-100: rgb(255, 239, 224); 
+  --color-secondary-200: rgb(255, 226, 196);
+  --color-secondary-300: rgb(255, 213, 168);
+  --color-secondary-400: rgb(255, 200, 140);
+  --color-secondary-500: rgb(241, 143, 47); 
+  --color-secondary-600: rgb(204, 121, 40);
+  --color-secondary-700: rgb(168, 100, 33);
+  --color-secondary-800: rgb(132, 78, 26);
+  --color-secondary-900: rgb(96, 57, 19); 
+
+  --font-ma-regular: "Montserrat-Regular";
+  --font-ma-black: "Montserrat-Black";
+  --font-ma-medium: "Montserrat-Medium";
+  --font-ma-light: "Montserrat-Light";
+}
