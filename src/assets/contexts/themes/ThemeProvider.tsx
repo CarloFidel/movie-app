@@ -7,7 +7,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const toogletheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
-
+  console.log(toogletheme)
  // const value = useMemo(() => ({ theme, setTheme }), [theme]);
 
   return <ThemeContext value={{theme, setTheme}}>{children}</ThemeContext>;
