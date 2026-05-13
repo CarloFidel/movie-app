@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import { RootLayout } from "../layout/RootLayout";
-import { LoginView } from "../pages/LoginView";
+import { RegisterView } from "../pages/RegisterView";
 import { Profile } from "../pages/Profile";
 import { Home } from "../pages/Home";
 import { Favorite } from "../pages/Favorite";
@@ -17,22 +17,22 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/pages/login",
-        element: <LoginView />,
+        path: "/register",
+        element: <RegisterView />,
       },
 
       {
-        path: "/pages/profile",
+        path: "/profile",
         element: <Profile />,
       },
 
       {
-        path: "/pages/favorite",
+        path: "/favorite",
         element: <Favorite />,
       },
 
       {
-        path: "/pages/descover",
+        path: "/discover",
         element: <Descover />,
       },
     ],

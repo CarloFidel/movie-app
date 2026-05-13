@@ -12,7 +12,7 @@ export const RootLayout = () => {
 
   return (
     <div
-      className={`${theme} relative flex flex-col min-h-screen dark:bg-linear-to-tl dark:from-indigo-950 dark:to-bg-dark transition duration-200`}
+      className={`${theme} relative flex flex-col min-h-screen dark:bg-linear-to-tl bg-linear-to-tl from-primary-300 to-white  dark:from-indigo-950 dark:to-bg-dark transition duration-200`}
     >
       <header className="px-10 py-2 font-ma-regular dark:text-gray-400 ">
         <CustomHeader />
