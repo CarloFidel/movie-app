@@ -12,24 +12,28 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
+        path: "/",
+        element: <Home />,
+      },
+
+      {
         path: "/pages/login",
         element: <LoginView />,
       },
+
       {
         path: "/pages/profile",
         element: <Profile />,
       },
-      {
-        path: "/pages/home",
-        element: <Home/>,
-      },
+
       {
         path: "/pages/favorite",
-        element: <Favorite/>,
+        element: <Favorite />,
       },
+
       {
         path: "/pages/descover",
-        element: <Descover/>,
+        element: <Descover />,
       },
     ],
   },

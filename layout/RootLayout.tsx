@@ -1,17 +1,16 @@
-import React from "react";
 import { Outlet as Pages } from "react-router";
 import { CustomHeader } from "../Components/shared/CustomHeader";
 
 export const RootLayout = () => {
   return (
-    <>
-      <header className="px-10">
-        <CustomHeader/>
+    <div className="relative flex flex-col min-h-screen bg-linear-20 from-blue-950 to-bg-dark text-white">
+      <header className="px-10 py-2 font-ma-regular">
+        <CustomHeader />
       </header>
-      <main className="px-10">
+      <main className=" px-10 font-ma-regular text-white h-screen  text-gray-100">
         <Pages />
       </main>
-      <footer className="px-10"> Este es el FOOTER de la app</footer>
-    </>
+      {/* <footer className="px-10 font-ma-regular"> Este es el FOOTER de la app</footer> */}
+    </div>
   );
 };
