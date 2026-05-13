@@ -5,7 +5,7 @@ import {
   IoSearchOutline,
   IoSunnyOutline,
 } from "react-icons/io5";
-import { ThemeContext } from "../../assets/contexts/themes/ContextTheme";
+import { ThemeContext } from "../../contexts/themes/ContextTheme";
 import { use } from "react";
 import { useNavigate } from "react-router";
 

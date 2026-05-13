@@ -2,7 +2,7 @@ import { Outlet as Pages } from "react-router";
 import { use } from "react";
 
 import { CustomHeader } from "../Components/shared/CustomHeader";
-import { ThemeContext } from "../assets/contexts/themes/ContextTheme";
+import { ThemeContext } from "../contexts/themes/ContextTheme";
 
 export const RootLayout = () => {
   const contextTheme = use(ThemeContext);

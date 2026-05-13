@@ -4,9 +4,6 @@ export const Home = () => {
 
   const navigate = useNavigate();
 
-  const handleClickNavigate = (path: string) => {
-    navigate(`/${path}`);
-  };
 
   return (
     <>
@@ -37,7 +34,7 @@ export const Home = () => {
             </button>
           </div>
 
-          <a className="dark:text-gray-400 font-ma-light text-sm underline cursor-pointer z-1" onClick={() => handleClickNavigate("register")}>Regístrate</a>
+          <a className="dark:text-gray-400 font-ma-light text-sm underline cursor-pointer z-1" onClick={() => navigate("/register")}>Regístrate</a>
         </form>
       </section>
     </>
