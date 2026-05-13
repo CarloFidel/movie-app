@@ -7,7 +7,7 @@ export const RootLayout = () => {
       <header className="px-10 py-2 font-ma-regular">
         <CustomHeader />
       </header>
-      <main className=" px-10 font-ma-regular text-white h-screen  text-gray-100">
+      <main className=" px-10 font-ma-regular h-screen text-gray-100">
         <Pages />
       </main>
       {/* <footer className="px-10 font-ma-regular"> Este es el FOOTER de la app</footer> */}

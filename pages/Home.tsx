@@ -1,4 +1,11 @@
+import { use } from "react";
+import { ThemeContext } from "../contexts/themes/ContextTheme";
+
 export const Home = () => {
+
+const context = use(ThemeContext)
+console.log(context)
+
   return (
     <>
       <section className="relative flex flex-col items-center justify-center py-40 gap-10">
