@@ -4,11 +4,11 @@ import { ThemeContext } from "./ContextTheme";
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<string>("light");
 
-  const toogletheme = () => {
+  function toogletheme() {
     setTheme(theme === "light" ? "dark" : "light");
-  };
-  console.log(toogletheme)
- // const value = useMemo(() => ({ theme, setTheme }), [theme]);
+  }
+  console.log(toogletheme);
+  // const value = useMemo(() => ({ theme, setTheme }), [theme]);
 
-  return <ThemeContext value={{theme, setTheme}}>{children}</ThemeContext>;
+  return <ThemeContext value={{ theme, setTheme }}>{children}</ThemeContext>;
 };

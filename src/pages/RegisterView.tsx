@@ -4,7 +4,7 @@ export const RegisterView = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="flex flex-col items-center justify-center py-20 gap-10">
+    <section className="flex flex-col items-center justify-center py-20 gap-10 w-5xl">
       <h2 className="text-3xl text-center text-gray-400 mb-2">Crear cuenta</h2>
 
       <form className="backdrop-blur bg-white/5 p-8 rounded-xl shadow-lg w-full max-w-md flex flex-col gap-6 border border-gray-300 dark:border-gray-700">

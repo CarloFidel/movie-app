@@ -1,28 +1,38 @@
 import {
   IoMoon,
-  IoNotificationsOutline,
   IoPersonOutline,
   IoSearchOutline,
   IoSunnyOutline,
 } from "react-icons/io5";
 import { ThemeContext } from "../../contexts/themes/ContextTheme";
-import { use } from "react";
+import { use, useState } from "react";
 import { useNavigate } from "react-router";
+import { UserContext } from "../../contexts/user/ContextUser";
 
 export const CustomHeader = () => {
+  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
+
   const contextTheme = use(ThemeContext);
   if (!contextTheme) throw new Error("Problemas con el ThemeProvider");
-
   const { theme, setTheme } = contextTheme;
+
+  const contextUser = use(UserContext);
+  if (!contextUser) throw new Error("Problemas con el UserProvider");
+  const { user } = contextUser;
 
   const handleToogleClick = (theme: string) => {
     setTheme(theme);
   };
 
   const navigate = useNavigate();
-
   const handleClickNavigate = (path: string) => {
+    // if(user === null && path !== '/') return navigate("/register");
+
     navigate(`/${path}`);
+  };
+
+  const handleToogleSearchIcon = () => {
+    setIsSearchBarOpen((prev) => !prev);
   };
 
   return (
@@ -33,12 +43,14 @@ export const CustomHeader = () => {
             <a href="/">CINEMATE</a>
           </h1>
           <ul className="flex flex-row gap-10 font-ma-regular ">
-            <li className="active:scale-95 hover:cursor-pointer transition-all duration-100"
-              onClick={() => handleClickNavigate("")}
+            <li
+              className="active:scale-95 hover:cursor-pointer transition-all duration-100"
+              onClick={() => handleClickNavigate("/")}
             >
               Inicio
             </li>
-            <li className="active:scale-95 hover:cursor-pointer transition-all duration-100"
+            <li
+              className="active:scale-95 hover:cursor-pointer transition-all duration-100"
               onClick={() => handleClickNavigate("discover")}
             >
               Descubrir
@@ -74,11 +86,16 @@ export const CustomHeader = () => {
           <IoSearchOutline
             size={18}
             className=" hover:cursor-pointer active:scale-90 transition-all duration-100"
+            onClick={handleToogleSearchIcon}
           />
-          <IoNotificationsOutline
-            size={20}
-            className=" hover:cursor-pointer active:scale-90 transition-all duration-100"
-          />
+          {isSearchBarOpen && (
+            <input
+              type="text"
+              placeholder="Buscar..."
+              autoFocus
+              className="border border-gray-400 text-sm font-ma-light dark:border-gray-700 px-4 py-1 rounded-2xl outline-none backdrop-blur bg-white/5"
+            />
+          )}
           <IoPersonOutline
             size={18}
             className=" hover:cursor-pointer active:scale-90 transition-all duration-100"

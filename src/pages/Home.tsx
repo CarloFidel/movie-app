@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router";
+import { CarrouselMovie } from "../Components/movie/CarrouselMovie";
 
 export const Home = () => {
-
   const navigate = useNavigate();
-
 
   return (
     <>
-      <section className="relative flex flex-col items-center justify-center py-40 gap-10">
+      <section className="relative flex flex-col items-center justify-center py-20 gap-10">
         <div className="mask-hero absolute inset-0 bg-[url('https://image.tmdb.org/t/p/w500//eRl6nmF8qb3q8cSoIHswnh97SI.jpg')] bg-cover bg-center opacity-30 rounded-3xl"></div>
 
         <h1 className="font-ma-medium text-indigo-950 dark:text-primary-400 text-8xl mask-b-from-0.5">
@@ -28,15 +27,23 @@ export const Home = () => {
               placeholder="Tu mail"
               className="border border-gray-400 dark:border-gray-700 px-4 py-2 rounded-l-2xl outline-none backdrop-blur bg-white/5"
             />
-            <button 
-            className="dark:text-gray-400 px-4 py-2 rounded-r-2xl outline-none backdrop-blur bg-white/5 border border-gray-400 dark:border-gray-700 text-gray-600 hover:cursor-pointer active:scale-95 transition duration-75">
+            <button className="dark:text-gray-400 px-4 py-2 rounded-r-2xl outline-none backdrop-blur bg-white/5 border border-gray-400 dark:border-gray-700 text-gray-600 hover:cursor-pointer active:scale-95 transition duration-75">
               Empezar
             </button>
           </div>
 
-          <a className="dark:text-gray-400 font-ma-light text-sm underline cursor-pointer z-1" onClick={() => navigate("/register")}>Regístrate</a>
+          <a
+            className="dark:text-gray-400 font-ma-light text-sm underline cursor-pointer z-1"
+            onClick={() => navigate("/register")}
+          >
+            Regístrate
+          </a>
         </form>
       </section>
+      <h2 className="text-start w-full">Trending Movies</h2>
+      <CarrouselMovie />
+      <h2 className="text-start w-full">Trending TV-Series</h2>
+      <CarrouselMovie />
     </>
   );
 };
