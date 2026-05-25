@@ -19,7 +19,7 @@ export const ActorCard = ({ actor }: Props) => {
 
   const toogleLoveClick = (name: string) => {
     console.log(`Se ha añadido el actor ${name} a tus favoritos`);
-    setIsFavorite(prev => !prev);
+    setIsFavorite((prev) => !prev);
   };
 
   return (
@@ -37,13 +37,13 @@ export const ActorCard = ({ actor }: Props) => {
         <h2 className="text-start w-30">{actor.name}</h2>
         {isFavorite === false ? (
           <IoHeartOutline
-            className="top-5 right-2 z-10 text-red-500/70 "
+            className="top-5 right-2 z-10 text-primary-600 dark:text-primary-600/50 "
             size={25}
             onClick={() => toogleLoveClick(actor.name)}
           />
         ) : (
           <IoHeart
-            className="top-5 right-2 z-10 text-red-500/70 "
+            className="top-5 right-2 z-10 text-primary-600 dark:text-primary-600/50 "
             size={25}
             onClick={() => toogleLoveClick(actor.name)}
           />
