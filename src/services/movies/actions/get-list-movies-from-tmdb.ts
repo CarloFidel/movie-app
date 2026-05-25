@@ -1,17 +1,15 @@
-import type { Movie } from "../../../interfaces/movie";
+import type { Movie } from "../../../interfaces/movie.interface";
 import { tmdbApi } from "../api/tmdb.api";
 
-export const getListPopularMovies = async (): Promise<Movie[]> => {
+export const getListPopularMovies = async (page = 1): Promise<Movie[]> => {
   try {
-    
-    const response = await tmdbApi.get("/popular", {
+    const response = await tmdbApi.get("movie/popular", {
       params: {
-        page: 5
-      }
+        page: page,
+      },
     });
     //console.log(response.data.results);
     return response.data.results;
-
   } catch (error) {
     console.error(error);
     return [];

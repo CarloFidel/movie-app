@@ -1,5 +1,5 @@
-import type { CastElement } from "../../interfaces/actor";
-import type { Movie } from "../../interfaces/movie";
+import type { CastElement } from "../../interfaces/cast.interface";
+import type { Movie } from "../../interfaces/movie.interface";
 import { MovieCard } from "./MovieCard";
 import { ActorCard } from "./ActorCard";
 

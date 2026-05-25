@@ -2,13 +2,12 @@ import { useNavigate } from "react-router";
 import { CarrouselMovie } from "../Components/movie/CarrouselMovie";
 import { useEffect, useState } from "react";
 import { getListPopularMovies } from "../services/movies/actions/get-list-movies-from-tmdb";
-import type { Movie } from "../interfaces/movie";
+import type { Movie } from "../interfaces/movie.interface";
 
 export const Home = () => {
   const navigate = useNavigate();
 
   const [moviesPopular, setMoviesPopular] = useState<Movie[]>();
-  console.log(moviesPopular)
 
   useEffect(() => {
     const getmovies = async () => {
@@ -57,8 +56,6 @@ export const Home = () => {
       </section>
       <h2 className="text-start w-full">Trending Movies</h2>
       <CarrouselMovie movieTrendin={moviesPopular} />
-      <h2 className="text-start w-full">Trending TV-Series</h2>
-      <CarrouselMovie />
     </>
   );
 };

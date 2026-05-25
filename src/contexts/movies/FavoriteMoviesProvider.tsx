@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Movie } from "../../interfaces/movie";
+import type { Movie } from "../../interfaces/movie.interface";
 import { FavoriteMovieContext } from "./ContextFavoriteMovies";
 
 export const FavoriteMoviesProvider = ({

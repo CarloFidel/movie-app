@@ -1,4 +1,4 @@
-import type { Cast } from "../interfaces/actor";
+import type { Cast } from "../interfaces/cast.interface";
 
 export const castResponse: Cast = {
     id: 934433,

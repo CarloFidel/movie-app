@@ -1,17 +1,70 @@
 import { useParams } from "react-router";
-import { movieTrendin } from "../mock_data/trandinMovie.fake";
 import { CarrouselMovie } from "../Components/movie/CarrouselMovie";
-import { castResponse } from "../mock_data/cast.fake";
 import { IoPlayCircleOutline } from "react-icons/io5";
+import { useEffect, useState } from "react";
+import type { Movie } from "../interfaces/movie.interface";
+import { getMovieDetails } from "../services/movies/actions/get-movie-details";
+import type { CastElement } from "../interfaces/cast.interface";
+import { getCast } from "../services/movies/actions/get-cast-from-movie";
 
 export const Detail = () => {
   const { id } = useParams<string>();
-  const movie = movieTrendin.find((movie) => movie.id === Number(id));
+  const movieId: number = Number(id);
 
-  if (!movie) throw new Error(`No movie founded mith id ${id}`);
+  const [movie, setMovie] = useState<Movie | null>(null);
+  const [cast, setCast] = useState<CastElement[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    const getDetail = async (movieId: number) => {
+      try {
+        setIsLoading(true);
+        setHasError(false);
+
+        const detail: Movie = await getMovieDetails(movieId);
+        setMovie(detail);
+      } catch (error) {
+        console.error(error);
+        setHasError(true);
+        setMovie(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    getDetail(movieId);
+  }, [id, movieId]);
+
+  useEffect(() => {
+    const getCastfromMovie = async (movieId: number) => {
+      try {
+        setIsLoading(true);
+        setHasError(false);
+
+        const cast: CastElement[] = await getCast(movieId);
+        setCast(cast);
+      } catch (error) {
+        console.error(error);
+        setHasError(true);
+        setMovie(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    getCastfromMovie(movieId);
+  }, [id, movieId]);
+
+  if (isLoading) return <p>Loading movie...</p>;
+
+  if (hasError) return <p>There was a problem loading movie {id}.</p>;
+
+  if (!movie) return <p>No movie found with id {id}.</p>;
+
+  if (!cast) return <p>No movie found with id {id}.</p>;
 
   const backgroundImage = `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`;
-  console.log(castResponse);
 
   return (
     <>
@@ -38,7 +91,7 @@ export const Detail = () => {
         ></div>
       </section>
       <h2 className="text-start w-full">Cast</h2>
-      <CarrouselMovie cast={castResponse.cast} />
+      <CarrouselMovie cast={cast} />
     </>
   );
 };

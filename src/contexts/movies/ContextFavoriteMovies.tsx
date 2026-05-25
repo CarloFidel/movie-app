@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { Movie } from "../../interfaces/movie";
+import type { Movie } from "../../interfaces/movie.interface";
 
 interface MovieContextType {
   favoriteMovies: Movie[];

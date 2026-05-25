@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import type { User } from "../../interfaces/user"
+import type { User } from "../../interfaces/user.interface"
 
 interface Props {
   user: User | null;

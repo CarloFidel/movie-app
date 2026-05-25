@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import type { Movie } from "../../interfaces/movie";
+import type { Movie } from "../../interfaces/movie.interface";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { useState } from "react";
 
@@ -37,13 +37,13 @@ export const MovieCard = ({ movie }: Props) => {
         <h2 className="text-start w-30">{movie.title}</h2>
         {isFavorite === false ? (
           <IoHeartOutline
-            className="top-5 right-2 z-10 text-red-500/70 "
+            className="top-5 right-2 z-10 text-primary-600 dark:text-primary-600/50 "
             size={25}
             onClick={() => toogleLoveClick(movie.title)}
           />
         ) : (
           <IoHeart
-            className="top-5 right-2 z-10 text-red-500/70 "
+            className="top-5 right-2 z-10 text-primary-600 dark:text-primary-600/50  "
             size={25}
             onClick={() => toogleLoveClick(movie.title)}
           />

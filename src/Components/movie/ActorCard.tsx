@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { useState } from "react";
-import type { CastElement } from "../../interfaces/actor";
+import type { CastElement } from "../../interfaces/cast.interface";
 
 interface Props {
   actor: CastElement;
