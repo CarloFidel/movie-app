@@ -1,14 +1,24 @@
-import { MovieCard } from './MovieCard'
-import { movieTrendin } from '../../mock_data/trandinMovie.fake'
+import type { CastElement } from "../../interfaces/actor";
+import type { Movie } from "../../interfaces/movie";
+import { MovieCard } from "./MovieCard";
+import { ActorCard } from "./ActorCard";
 
-export const CarrouselMovie = () => {
+interface Props {
+  movieTrendin?: Movie[];
+  cast?: CastElement[];
+}
+
+export const CarrouselMovie = ({ movieTrendin, cast }: Props) => {
   return (
-      <section className="mask-card-container flex flex-col items-center justify-center w-full px-2 overflow-x-auto mb-5 py-2">
-        <article className="flex gap-8 w-fit mb-5">
-          {movieTrendin.map((movie) => (
+    <section className="mask-card-container flex w-full overflow-x-auto py-2 scrollbar-none">
+      <article className="flex w-max gap-8 px-8">
+        {movieTrendin &&
+          movieTrendin.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
           ))}
-        </article>
-      </section>
-  )
-}
+        {cast &&
+          cast.map((actor) => <ActorCard actor={actor} key={actor.id} />)}
+      </article>
+    </section>
+  );
+};

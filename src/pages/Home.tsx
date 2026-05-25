@@ -1,8 +1,23 @@
 import { useNavigate } from "react-router";
 import { CarrouselMovie } from "../Components/movie/CarrouselMovie";
+import { useEffect, useState } from "react";
+import { getListPopularMovies } from "../services/movies/actions/get-list-movies-from-tmdb";
+import type { Movie } from "../interfaces/movie";
 
 export const Home = () => {
   const navigate = useNavigate();
+
+  const [moviesPopular, setMoviesPopular] = useState<Movie[]>();
+  console.log(moviesPopular)
+
+  useEffect(() => {
+    const getmovies = async () => {
+      const movies: Movie[] = await getListPopularMovies();
+      setMoviesPopular(movies);
+    };
+
+    getmovies();
+  }, []);
 
   return (
     <>
@@ -41,7 +56,7 @@ export const Home = () => {
         </form>
       </section>
       <h2 className="text-start w-full">Trending Movies</h2>
-      <CarrouselMovie />
+      <CarrouselMovie movieTrendin={moviesPopular} />
       <h2 className="text-start w-full">Trending TV-Series</h2>
       <CarrouselMovie />
     </>
