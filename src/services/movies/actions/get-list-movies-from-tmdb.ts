@@ -8,7 +8,6 @@ export const getListPopularMovies = async (page = 1): Promise<Movie[]> => {
         page: page,
       },
     });
-    //console.log(response.data.results);
     return response.data.results;
   } catch (error) {
     console.error(error);

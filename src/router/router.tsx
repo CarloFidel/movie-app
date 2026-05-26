@@ -7,6 +7,10 @@ import { Home } from "../pages/Home";
 import { Favorite } from "../pages/Favorite";
 import { Descover } from "../pages/Descover";
 import { Detail } from "../pages/Detail";
+import RouteProtecter from "../Components/shared/RouteProtecter";
+import PersonalData from "../pages/profile/PersonalData";
+import FavoritesMovies from "../pages/profile/FavoritesMovies";
+import ListUsers from "../pages/profile/ListUsers";
 
 export const router = createBrowserRouter([
   {
@@ -25,28 +29,46 @@ export const router = createBrowserRouter([
 
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <RouteProtecter>
+            <Profile />
+          </RouteProtecter>
+        ),
         children: [
-          { path: "/profile/favorites_personal_data", element: <></> },
-          { path: "/profile/favorites_movies", element: <></> },
-          { path: "/profile/favorites_tvseries", element: <></> },
-          { path: "/profile/favorites_animes", element: <></> },
+          {
+            path: "/profile/favorites_personal_data",
+            element: <PersonalData />,
+          },
+          { path: "/profile/favorites_movies", element: <FavoritesMovies /> },
+          { path: "/profile/users", element: <ListUsers /> },
         ],
       },
 
       {
         path: "/favorite",
-        element: <Favorite />,
+        element: (
+          <RouteProtecter>
+            <Favorite />
+          </RouteProtecter>
+        ),
       },
 
       {
         path: "/discover",
-        element: <Descover />,
+        element: (
+          <RouteProtecter>
+            <Descover />
+          </RouteProtecter>
+        ),
       },
 
       {
         path: "/detail/:id",
-        element: <Detail />,
+        element: (
+          <RouteProtecter>
+            <Detail />
+          </RouteProtecter>
+        ),
       },
     ],
   },

@@ -1,17 +1,41 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { registerUser } from "../services/users/actions/user-api-movieMate";
+import type { User } from "../interfaces/user.interface";
+import { use } from "react";
+import { AuthContext } from "../contexts/user/AuthContext";
 
 export const RegisterView = () => {
   const navigate = useNavigate();
+  const authContext = use(AuthContext);
+
+  if (!authContext) throw new Error("Problemas con el AuthProvider");
+
+  const { login } = authContext;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<User>();
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const onSubmit = handleSubmit(async (data) => {
+    try {
+      const response = await registerUser(data);
+      const token = response.data.token;
+
+      const userResponse = {
+        email: response.data.email,
+        fullName: response.data.fullName,
+      };
+
+      if (token) {
+        login(token, userResponse);
+        navigate("/profile");
+      }
+    } catch (error) {
+      console.error("error en registro", error);
+    }
   });
 
   return (

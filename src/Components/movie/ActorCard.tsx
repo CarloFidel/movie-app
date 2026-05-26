@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router";
-import { IoHeart, IoHeartOutline } from "react-icons/io5";
-import { useState } from "react";
 import type { CastElement } from "../../interfaces/cast.interface";
 
 interface Props {
@@ -8,18 +6,11 @@ interface Props {
 }
 
 export const ActorCard = ({ actor }: Props) => {
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
-
   const navigate = useNavigate();
 
   const handleCardClick = (actorId: number) => {
     navigate(`/detail/${actor.id}`);
     console.log(`Actor seleccionado: ${actorId}`);
-  };
-
-  const toogleLoveClick = (name: string) => {
-    console.log(`Se ha añadido el actor ${name} a tus favoritos`);
-    setIsFavorite((prev) => !prev);
   };
 
   return (
@@ -35,19 +26,6 @@ export const ActorCard = ({ actor }: Props) => {
       ></img>
       <div className="flex justify-between items-center pr-4">
         <h2 className="text-start w-30">{actor.name}</h2>
-        {isFavorite === false ? (
-          <IoHeartOutline
-            className="top-5 right-2 z-10 text-primary-600 dark:text-primary-600/50 "
-            size={25}
-            onClick={() => toogleLoveClick(actor.name)}
-          />
-        ) : (
-          <IoHeart
-            className="top-5 right-2 z-10 text-primary-600 dark:text-primary-600/50 "
-            size={25}
-            onClick={() => toogleLoveClick(actor.name)}
-          />
-        )}
       </div>
     </div>
   );

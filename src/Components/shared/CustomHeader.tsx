@@ -7,7 +7,7 @@ import {
 import { ThemeContext } from "../../contexts/themes/ContextTheme";
 import { use, useState } from "react";
 import { useNavigate } from "react-router";
-import { UserContext } from "../../contexts/user/ContextUser";
+import { AuthContext } from "../../contexts/user/AuthContext";
 
 export const CustomHeader = () => {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
@@ -16,9 +16,8 @@ export const CustomHeader = () => {
   if (!contextTheme) throw new Error("Problemas con el ThemeProvider");
   const { theme, setTheme } = contextTheme;
 
-  const contextUser = use(UserContext);
+  const contextUser = use(AuthContext);
   if (!contextUser) throw new Error("Problemas con el UserProvider");
-  const { user } = contextUser;
 
   const handleToogleClick = (theme: string) => {
     setTheme(theme);
@@ -39,8 +38,8 @@ export const CustomHeader = () => {
     <>
       <section className="flex flex-row justify-between w-full items-center ">
         <nav className="flex flex-row gap-10 items-center">
-          <h1 className="font-ma-medium text-primary-500 text-4xl">
-            <a href="/">CINEMATE</a>
+          <h1 className="font-ma-medium text-primary-500 text-4xl cursor-pointer">
+            <p onClick={() => navigate("/")}>CINEMATE</p>
           </h1>
           <ul className="flex flex-row gap-10 font-ma-regular ">
             <li
