@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShareBar > Should render searchbar correectly 1`] = `
+<div>
+  <div
+    class="relative flex flex-row items-center justify-center py-15 gap-1"
+  >
+    <input
+      class="border bg-primary-300/30 border-gray-300 dark:border-gray-700 px-4 py-2 rounded-l-2xl outline-none "
+      placeholder="Buscar..."
+      type="text"
+      value=""
+    />
+    <button
+      class="border border-gray-300 bg-primary-300 dark:border-gray-700 dark:bg-primary-700 dark:text-white px-4 py-2 rounded-r-2xl outline-none active:scale-95 cursor-pointer transition duration-75"
+    >
+      Buscar
+    </button>
+  </div>
+</div>
+`;

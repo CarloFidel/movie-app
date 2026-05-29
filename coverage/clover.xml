@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1779985161220" clover="3.2.0">
+  <project timestamp="1779985161220" name="All files">
+    <metrics statements="22" coveredstatements="20" conditionals="5" coveredconditionals="3" methods="9" coveredmethods="8" elements="36" coveredelements="31" complexity="0" loc="22" ncloc="22" packages="2" files="4" classes="4"/>
+    <package name="Components.shared">
+      <metrics statements="21" coveredstatements="19" conditionals="5" coveredconditionals="3" methods="9" coveredmethods="8"/>
+      <file name="LoadingComponent.tsx" path="/Users/charlyflow/programing/it-academy/project_3/movie-app/src/Components/shared/LoadingComponent.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+      <file name="RouteProtecter.tsx" path="/Users/charlyflow/programing/it-academy/project_3/movie-app/src/Components/shared/RouteProtecter.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="SearchBar.tsx" path="/Users/charlyflow/programing/it-academy/project_3/movie-app/src/Components/shared/SearchBar.tsx">
+        <metrics statements="15" coveredstatements="13" conditionals="3" coveredconditionals="1" methods="7" coveredmethods="6"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="18" count="12" type="stmt"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="12" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="12" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="contexts.Auth">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="AuthContext.tsx" path="/Users/charlyflow/programing/it-academy/project_3/movie-app/src/contexts/Auth/AuthContext.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
