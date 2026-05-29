@@ -40,10 +40,42 @@ export const getOnebyId = async (id: string, token: string) => {
   }
 };
 
+export const getUsersList = async (token: string) => {
+  try {
+    const response = await movieMate.get("auth/users", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || "Error buscando usuarios",
+      );
+    }
+    throw new Error(`Problem buscando usuarios`);
+  }
+};
+
+export const deletetUser = async (token: string) => {
+  try {
+    const response = await movieMate.delete("auth/user", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || "Error borrando usuarios",
+      );
+    }
+    throw new Error(`Problem buscando usuarios`);
+  }
+};
+
 export const getListFavoriteMovies = async (
   id: string,
   token: string,
-  limit: number = 5,
+  limit: number = 50,
   offset: number = 0,
 ) => {
   try {
@@ -60,21 +92,6 @@ export const getListFavoriteMovies = async (
   }
 };
 
-export const getUsersList = async (token: string) => {
-  try {
-    const response = await movieMate.get("auth/users", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return response.data;
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      throw new Error(
-        error.response?.data?.message || "Error buscando usuarios",
-      );
-    }
-    throw new Error(`Problem buscando usuarios`);
-  }
-};
 
 export const createFavoriteMovie = async (
   moviedbID: number,

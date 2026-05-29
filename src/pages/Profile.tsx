@@ -60,7 +60,7 @@ export const Profile = () => {
           </ul>
         </nav>
       </article>
-      <article className="relative flex flex-row justify-center items-center w-full">
+      <article className="relative flex flex-col justify-center items-center w-full overflow-hidden overflow-x-auto scrollbar-none gap-5 mt-5">
         <Outlet />
       </article>
     </section>

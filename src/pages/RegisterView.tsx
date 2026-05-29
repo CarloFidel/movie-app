@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { registerUser } from "../services/users/actions/user-api-movieMate";
 import type { User } from "../interfaces/user.interface";
 import { use } from "react";
-import { AuthContext } from "../contexts/user/AuthContext";
+import { AuthContext } from "../contexts/Auth/AuthContext";
 
 export const RegisterView = () => {
   const navigate = useNavigate();

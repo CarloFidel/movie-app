@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { FavoriteMovieContext } from "./FavoriteMovieContext";
 import type { Movie } from "../../interfaces/movie.interface";
-import { FavoriteMovieContext } from "./ContextFavoriteMovies";
+
 
 export const FavoriteMoviesProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const [favoriteMovies, setFavoriteMovies] = useState<Movie[]>([]);
+
+const [favoriteMovies, setFavoriteMovies] = useState<Movie[] | null>(null)
+
+
 
   return (
     <FavoriteMovieContext value={{ favoriteMovies, setFavoriteMovies }}>

@@ -3,12 +3,12 @@ import { useGetUserData } from "../../hooks/useGetUserData";
 import userImage from "../../assets/user.jpg";
 
 const PersonalData = () => {
-  // Datos hardcodeados de ejemplo
 
   const { user, isAdmin } = useGetUserData();
 
   const fullName = user?.fullName;
   const email = user?.email;
+
 
   if (!user) return <LoadingComponent />;
 
@@ -51,9 +51,6 @@ const PersonalData = () => {
           alt="Profile"
           className="w-32 h-32 mb-10 rounded-full mx-auto border border-gray-400 dark:border-gray-600"
         />
-        <button className="bg-primary-400 dark:text-gray-800 hover:cursor-pointer font-ma-light text-sm dark:border-gray-700 px-4 py-3 rounded-2xl outline-none active:scale-95 transition duration-75">
-          Actualizar foto de perfil
-        </button>
       </div>
     </section>
   );

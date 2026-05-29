@@ -1,8 +1,8 @@
 import { use, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/user/AuthContext";
-import { getUserFromJwData } from "../utility/get-user-from-token";
-import { getListFavoriteMovies } from "../services/users/actions/user-api-movieMate";
-import type { MovieBackend } from "../interfaces/movieFromBackend";
+import { AuthContext } from "../../../contexts/Auth/AuthContext";
+import { getUserFromJwData } from "../../../utility/get-user-from-token";
+import { getListFavoriteMovies } from "../../../services/users/actions/user-api-movieMate";
+import type { MovieBackend } from "../../../interfaces/movieFromBackend";
 
 export const useGetMoviedbId = () => {
   const [moviesIds, setMoviesIds] = useState<number[]>([]);

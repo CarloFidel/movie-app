@@ -1,7 +1,7 @@
 import { use, useEffect, useState } from "react";
 import LoadingComponent from "../../Components/shared/LoadingComponent";
 import { getUsersList } from "../../services/users/actions/user-api-movieMate";
-import { AuthContext } from "../../contexts/user/AuthContext";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import type { User } from "../../interfaces/user.interface";
 import { FiTrash2 } from "react-icons/fi";
 

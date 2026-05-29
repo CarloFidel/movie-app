@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { AuthContext } from "../../contexts/user/AuthContext";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Navigate } from "react-router";
 
 function RouteProtecter({ children }: { children: React.ReactNode }) {

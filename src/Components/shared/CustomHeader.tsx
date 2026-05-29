@@ -1,37 +1,19 @@
-import {
-  IoMoon,
-  IoPersonOutline,
-  IoSearchOutline,
-  IoSunnyOutline,
-} from "react-icons/io5";
-import { ThemeContext } from "../../contexts/themes/ContextTheme";
-import { use, useState } from "react";
+import { IoMoon, IoPersonOutline, IoSunnyOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
-import { AuthContext } from "../../contexts/user/AuthContext";
+import { useTheme } from "./hooks/useTheme";
+import userImage from "../../assets/user.jpg";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
+import { use } from "react";
 
 export const CustomHeader = () => {
-  const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
-
-  const contextTheme = use(ThemeContext);
-  if (!contextTheme) throw new Error("Problemas con el ThemeProvider");
-  const { theme, setTheme } = contextTheme;
-
-  const contextUser = use(AuthContext);
-  if (!contextUser) throw new Error("Problemas con el UserProvider");
-
-  const handleToogleClick = (theme: string) => {
-    setTheme(theme);
-  };
+  const { theme, handleToogleClick } = useTheme();
+  const authcontext = use(AuthContext);
+  const { isAuth } = authcontext!;
 
   const navigate = useNavigate();
+
   const handleClickNavigate = (path: string) => {
-    // if(user === null && path !== '/') return navigate("/register");
-
     navigate(`/${path}`);
-  };
-
-  const handleToogleSearchIcon = () => {
-    setIsSearchBarOpen((prev) => !prev);
   };
 
   return (
@@ -56,13 +38,9 @@ export const CustomHeader = () => {
             </li>
             <li
               className="active:scale-95 hover:cursor-pointer transition-all duration-100"
-              onClick={() => handleClickNavigate("favorite")}
-            >
-              Favoritos
-            </li>
-            <li
-              className="active:scale-95 hover:cursor-pointer transition-all duration-100"
-              onClick={() => handleClickNavigate("profile")}
+              onClick={() =>
+                handleClickNavigate("profile/favorites_personal_data")
+              }
             >
               Perfil
             </li>
@@ -82,23 +60,18 @@ export const CustomHeader = () => {
               onClick={() => handleToogleClick("light")}
             />
           )}
-          <IoSearchOutline
-            size={18}
-            className=" hover:cursor-pointer active:scale-90 transition-all duration-100"
-            onClick={handleToogleSearchIcon}
-          />
-          {isSearchBarOpen && (
-            <input
-              type="text"
-              placeholder="Buscar..."
-              autoFocus
-              className="border border-gray-400 text-sm font-ma-light dark:border-gray-700 px-4 py-1 rounded-2xl outline-none backdrop-blur bg-white/5"
+          {!isAuth ? (
+            <IoPersonOutline
+              size={18}
+              className=" hover:cursor-pointer active:scale-90 transition-all duration-100"
+            />
+          ) : (
+            <img
+              src={userImage}
+              alt="Profile"
+              className="w-7 h-7 rounded-full border border-gray-400 dark:border-gray-600"
             />
           )}
-          <IoPersonOutline
-            size={18}
-            className=" hover:cursor-pointer active:scale-90 transition-all duration-100"
-          />
         </div>
       </section>
     </>
